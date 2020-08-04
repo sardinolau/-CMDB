@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-quiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,intial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>nihao</h1>
+<div class="container">
+<div class="row">
+    <a href="{% url 'create_server' %}"><button class="btn btn-info">增加服务器</button></a>
+</div>
+   <table class="table table-bordered">
+     <thead>
+     <tr>
+         <th>主机名</th>
+         <th>业务线</th>
+         <th>IDC</th>
+     </tr>
+     
+     </thead>  
+       <tbody>
+       {% for row in server_list %}
+       <tr>
+           <td>{{ row.hostname }}</td>
+           <td>{{ row.bussiness_unit.name }}</td>
+           <td>{{ row.idc.name }}{{ row.idc.floor }}</td>
+       </tr>
+       {% endfor %}
+
+       </tbody>
+   </table> 
+    
+</div>
+
+
+</body>
+</html>
